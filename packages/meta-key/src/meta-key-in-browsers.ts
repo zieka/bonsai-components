@@ -3,9 +3,9 @@ import { MetaKeyMap, metaKeyMapDefault } from './meta-key-map';
 declare var navigator: any;
 
 export function metaKeyInBrowsers<T = string>(
-  metaKeyMapInput?: MetaKeyMap<T>
+  metaKeyMapInput?: Partial<MetaKeyMap<T>>
 ): T {
-  const metaKeyMap = metaKeyMapInput || metaKeyMapDefault;
+  const metaKeyMap = { ...metaKeyMapDefault, ...metaKeyMapInput };
   let platform = '';
   if (typeof navigator !== 'undefined') {
     if (navigator.userAgentData && navigator.userAgentData.platform) {

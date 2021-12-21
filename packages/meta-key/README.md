@@ -47,6 +47,13 @@ const metaKeyMapDefault: MetaKeyMap<string> = {
 const metaKeyAsString: string = metaKey();
 ```
 
+Additionally, if you pass a partial of the `MetaKeyMap` the missing keys will be
+filled in with the default. This is handy when wanting to override one string:
+
+```ts
+const metaKeyAsString: string = metaKey({ windows: 'ctrl +' });
+```
+
 ### Browser
 
 ```ts
