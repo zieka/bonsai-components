@@ -1,0 +1,38 @@
+{
+  "name": "@bonsai-components/root",
+  "description": "simple awesome components",
+  "private": true,
+  "license": "(MIT OR Apache-2.0)",
+  "repository": "https://github.com/zieka/graphql-reshape",
+  "author": {
+    "name": "Kyle Scully",
+    "url": "https://github.com/zieka"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "check-types": "lerna run check-types",
+    "prettier-check": "prettier --config package.json --list-different '{,**/}*.{js,ts,json,graphql}'",
+    "prettier-format": "prettier --config package.json --write '{,**/}*.{js,ts,json,graphql}'",
+    "publish": "npm run build && lerna publish",
+    "test": "jest",
+    "test:ci": "jest --ci --runInBand --coverage --bail"
+  },
+  "devDependencies": {
+    "@types/jest": "27.0.3",
+    "@types/node": "17.0.2",
+    "cz-conventional-changelog": "3.3.0",
+    "jest": "27.4.5",
+    "jest-cli": "27.4.5",
+    "lerna": "4.0.0",
+    "prettier": "2.5.1",
+    "typescript": "4.5.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

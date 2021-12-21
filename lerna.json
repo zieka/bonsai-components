@@ -1,0 +1,14 @@
+{
+  "packages": ["packages/*"],
+  "version": "independent",
+  "command": {
+    "publish": {
+      "registry": "https://registry.npmjs.org/",
+      "conventionalCommits": true,
+      "allowBranch": ["main"]
+    },
+    "version": {
+      "allowBranch": ["main"]
+    }
+  }
+}
