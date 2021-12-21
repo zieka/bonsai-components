@@ -1,6 +1,6 @@
 import { metaKeyMapDefault } from './meta-key-map';
-import { metaKeyInBrowsers } from './meta-key-in-browsers';
-import { metaKeyInNode } from './meta-key-in-node';
+import { metaKeyInBrowser } from './meta-key-in-browser';
+import { metaKeyInNodeProcess } from './meta-key-in-node-process';
 import { MetaKeyMap } from '.';
 
 export function metaKey<T = string>(
@@ -9,7 +9,7 @@ export function metaKey<T = string>(
   const metaKeyMap = { ...metaKeyMapDefault, ...metaKeyMapInput };
 
   if (window !== undefined) {
-    return metaKeyInNode(metaKeyMap as MetaKeyMap<T>);
+    return metaKeyInNodeProcess(metaKeyMap as MetaKeyMap<T>);
   }
-  return metaKeyInBrowsers(metaKeyMap as MetaKeyMap<T>);
+  return metaKeyInBrowser(metaKeyMap as MetaKeyMap<T>);
 }

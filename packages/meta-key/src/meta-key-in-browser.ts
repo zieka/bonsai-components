@@ -2,7 +2,7 @@ import { MetaKeyMap, metaKeyMapDefault } from './meta-key-map';
 
 declare var navigator: any;
 
-export function metaKeyInBrowsers<T = string>(
+export function metaKeyInBrowser<T = string>(
   metaKeyMapInput?: Partial<MetaKeyMap<T>>
 ): T {
   const metaKeyMap = { ...metaKeyMapDefault, ...metaKeyMapInput };

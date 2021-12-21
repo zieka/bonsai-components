@@ -2,7 +2,7 @@ import { MetaKeyMap, metaKeyMapDefault } from './meta-key-map';
 
 process.platform === 'darwin';
 
-export function metaKeyInNode<T = string>(
+export function metaKeyInNodeProcess<T = string>(
   metaKeyMapInput?: Partial<MetaKeyMap<T>>
 ): T {
   const metaKeyMap = { ...metaKeyMapDefault, ...metaKeyMapInput };
