@@ -11,5 +11,6 @@
     "prettier-check": "prettier --config package.json --list-different '{,**/}*.{js,ts,json,graphql}'",
     "prettier-format": "prettier --config package.json --write '{,**/}*.{js,ts,json,graphql}'"
   },
-  "author": "Kyle Scully"
+  "author": "Kyle Scully",
+  "gitHead": "b71ab9e2b2c02655d1d090f6be8e097e8c8d4a12"
 }
