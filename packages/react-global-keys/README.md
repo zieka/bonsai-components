@@ -22,6 +22,22 @@ import { GlobalKeysProvider } from '@bonsai-components/react-global-keys';
 </GlobalKeysProvider>;
 ```
 
+When using the `meta` key modifier this is not always the best experience
+for users using browsers that do not support it or OS that intercept the meta
+key. For these reasons, you can specify `useCtrlAsMetaAlternative` so `meta` or
+`ctrl` modifier can be used for the binding:
+
+```tsx
+<GlobalKeysProvider useCtrlAsMetaAlternative>
+```
+
+Additionally, you can activate debugging mode to get extra console statements
+using the debug prop:
+
+```tsx
+<GlobalKeysProvider debug>
+```
+
 ### Add some key mappings
 
 Now in any component use the `useGlobalKeyBinding` to add some key mappings:
@@ -37,19 +53,5 @@ useGlobalKeyBinding({
   key: 'k',
   action: awesomeAction,
   modifier: { meta: true },
-});
-```
-
-Note when using the `meta` key modifier this is not always the best experience
-for users using browsers that do not support it or OS that intercept the meta
-key. For these reasons, you can specify `useCtrlAsMetaAlternative` so `meta` or
-`ctrl` modifier can be used for the binding:
-
-```tsx
-useGlobalKeyBinding({
-  key: 'k',
-  action: awesomeAction,
-  modifier: { meta: true },
-  useCtrlAsMetaAlternative: true,
 });
 ```
