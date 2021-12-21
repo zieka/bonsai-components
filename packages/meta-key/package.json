@@ -1,0 +1,15 @@
+{
+  "name": "@bonsai-components/meta-key",
+  "version": "0.0.1",
+  "description": "Make meta key less annoying",
+  "main": "./dist/index.js",
+  "license": "(MIT OR Apache-2.0)",
+  "public": true,
+  "scripts": {
+    "build": "cti -b ./src && tsc",
+    "check-types": "tsc --noEmit",
+    "prettier-check": "prettier --config package.json --list-different '{,**/}*.{js,ts,json,graphql}'",
+    "prettier-format": "prettier --config package.json --write '{,**/}*.{js,ts,json,graphql}'"
+  },
+  "author": "Kyle Scully"
+}
