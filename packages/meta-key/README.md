@@ -13,14 +13,14 @@ npm i @bonsai-components/meta-key
 
 ## How to use
 
-There are 3 different variants: - `metaKeyInBrowser` - handles detection in the browser - `metaKeyInNodeProcess` - handles detection in node - `metaKey` - universal detection (the most code delivered but handles universal usage)
+There are 3 different variants:
+
+- `metaKeyInBrowser` - handles detection in the browser
+- `metaKeyInNodeProcess` - handles detection in node
+- `metaKey` - universal detection (the most code delivered but handles universal usage)
 
 All variants work the same way by passing a `MetaKeyMap` which has keys `mac`, `windows`, `other`. The values of these fields can be anything and will be what is returned
 depending on the platform detetion.
-
-```ts
-const metaKeyAsString: string = metaKey();
-```
 
 ```ts
 type VoidFunction = () => void;
@@ -43,6 +43,8 @@ const metaKeyMapDefault: MetaKeyMap<string> = {
   windows: '⊞',
   other: '◆',
 };
+
+const metaKeyAsString: string = metaKey();
 ```
 
 ### Browser
