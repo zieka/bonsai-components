@@ -2,9 +2,10 @@ import { MetaKeyMap, metaKeyMapDefault } from './meta-key-map';
 
 declare var navigator: any;
 
-export function printMetaKeyInBrowsers<T = string>(
-  metaKeyMap: MetaKeyMap = metaKeyMapDefault
+export function metaKeyInBrowsers<T = string>(
+  metaKeyMapInput?: MetaKeyMap<T>
 ): T {
+  const metaKeyMap = metaKeyMapInput || metaKeyMapDefault;
   let platform = '';
   if (typeof navigator !== 'undefined') {
     if (navigator.userAgentData && navigator.userAgentData.platform) {
