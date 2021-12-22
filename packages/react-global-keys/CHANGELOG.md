@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.0.3...@bonsai-components/react-global-keys@1.1.0) (2021-12-22)
+
+
+### Features
+
+* **react-global-keys:** make modifier object on KeyBinding optional ([1bfc8a2](https://github.com/zieka/bonsai-components/commit/1bfc8a2fdaeaaf8e875ae131f2056aebab1d9116))
+
+
+
+
+
 ## [1.0.3](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.0.2...@bonsai-components/react-global-keys@1.0.3) (2021-12-22)
 
 **Note:** Version bump only for package @bonsai-components/react-global-keys
