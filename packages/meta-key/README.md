@@ -21,8 +21,10 @@ There are 3 different variants:
 - `metaKeyInNodeProcess` - handles detection in node
 - `metaKey` - universal detection (the most code delivered but handles universal usage)
 
-All variants work the same way by passing a `MetaKeyMap` which has keys `mac`, `windows`, `other`. The values of these fields can be anything and will be what is returned
-depending on the platform detetion.
+All variants work the same way, `(metaKeyMap?: MetaKeyMap<T>) => T`. The keys of
+`MetaKeyMap` are `mac`, `windows`, and `other`. The values of these fields can
+be anything; one of the values will be returned depending on the platform
+detection.
 
 ```ts
 type VoidFunction = () => void;
@@ -37,7 +39,7 @@ const alertConsole: VoidFunction = metaKey<VoidFunction>(alertMetaKeyMap);
 alertConsole();
 ```
 
-The default maps to string representing meta key symbols:
+If no `MetaKeyMap` is provided, the default maps to a string representing meta key symbol:
 
 ```ts
 const metaKeyMapDefault: MetaKeyMap<string> = {
