@@ -69,5 +69,5 @@ import { metaKeyInNodeProcess } from '@bonsai-components/meta-key';
 ### Universal
 
 ```ts
-import { metaKeyInNode } from '@bonsai-components/meta-key';
+import { metaKey } from '@bonsai-components/meta-key';
 ```
