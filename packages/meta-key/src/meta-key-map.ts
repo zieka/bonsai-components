@@ -5,7 +5,7 @@ export type MetaKeyMap<T = string> = {
 };
 
 export const metaKeyMapDefault: MetaKeyMap = {
-  mac: '⌘',
-  windows: '⊞',
-  other: '◆',
+  mac: "⌘",
+  windows: "⊞",
+  other: "◆",
 };

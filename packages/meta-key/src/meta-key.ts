@@ -1,7 +1,7 @@
-import { metaKeyMapDefault } from './meta-key-map';
-import { metaKeyInBrowser } from './meta-key-in-browser';
-import { metaKeyInNodeProcess } from './meta-key-in-node-process';
-import { MetaKeyMap } from '.';
+import { metaKeyMapDefault } from "./meta-key-map";
+import { metaKeyInBrowser } from "./meta-key-in-browser";
+import { metaKeyInNodeProcess } from "./meta-key-in-node-process";
+import { MetaKeyMap } from ".";
 
 export function metaKey<T = string>(
   metaKeyMapInput?: Partial<MetaKeyMap<T>>
