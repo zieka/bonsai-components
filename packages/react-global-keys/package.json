@@ -22,6 +22,9 @@
     "key",
     "keys",
     "listener",
+    "commands",
+    "shortcuts",
+    "keyboard",
     "bonsai",
     "bonsai-components"
   ],
