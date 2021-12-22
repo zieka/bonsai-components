@@ -4,7 +4,7 @@ import { reportKeyBindingConflict } from '../helpers/error.helpers';
 export type KeyBinding = {
   key: string;
   action: () => void;
-  modifier: {
+  modifier?: {
     meta?: boolean;
     alt?: boolean;
     ctrl?: boolean;
@@ -64,15 +64,14 @@ export class GlobalKeysProvider extends Component<
 
   private handleKeyDown = (e: React.KeyboardEvent<Element>): void => {
     this.state.keyBindings.forEach((keyBinding) => {
+      const modifier = keyBinding.modifier ? keyBinding.modifier : {};
       if (e.key === keyBinding.key) {
         if (
-          (keyBinding.modifier.meta && e.metaKey) ||
-          (keyBinding.modifier.meta &&
-            this.props.useCtrlAsMetaAlternative &&
-            e.ctrlKey) ||
-          (keyBinding.modifier.alt && e.altKey) ||
-          (keyBinding.modifier.ctrl && e.ctrlKey) ||
-          (keyBinding.modifier.shift && e.shiftKey)
+          (modifier.meta && e.metaKey) ||
+          (modifier.meta && this.props.useCtrlAsMetaAlternative && e.ctrlKey) ||
+          (modifier.alt && e.altKey) ||
+          (modifier.ctrl && e.ctrlKey) ||
+          (modifier.shift && e.shiftKey)
         ) {
           keyBinding.action();
           e.preventDefault();
@@ -82,8 +81,12 @@ export class GlobalKeysProvider extends Component<
   };
 
   private encodeKeyBinding = (keyBinding: KeyBinding): string => {
-    const modifiers = Object.keys(keyBinding.modifier)
-      .map((key) => (keyBinding.modifier[key] ? key[0] : ''))
+    const modifier = keyBinding.modifier ? keyBinding.modifier : null;
+    if (!modifier) {
+      return keyBinding.key;
+    }
+    const modifiers = Object.keys(modifier)
+      .map((key) => (modifier[key] ? key[0] : ''))
       .join('');
     return `${keyBinding.key}${modifiers}`;
   };

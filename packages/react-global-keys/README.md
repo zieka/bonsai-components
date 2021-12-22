@@ -57,3 +57,19 @@ useGlobalKeyBinding({
   modifier: { meta: true },
 });
 ```
+
+`useGlobalKeyBinding` hook also accepts an array of key mappings:
+
+```tsx
+useGlobalKeyBinding([
+  {
+    key: 'k',
+    action: focusSearch,
+    modifier: { meta: true },
+  },
+  {
+    key: '/',
+    action: focusSearchIfNotInInput,
+  },
+]);
+```
