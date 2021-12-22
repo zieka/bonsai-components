@@ -13,6 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
+    "declaration": true,
     "paths": {
       "*": ["node_modules/*"]
     }
