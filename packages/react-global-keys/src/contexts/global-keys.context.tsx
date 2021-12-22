@@ -52,9 +52,9 @@ export class GlobalKeysProvider extends Component<
         }
         return;
       }
-      this.setState(() => ({
+      this.setState((prevState) => ({
         keyBindings: [
-          ...this.state.keyBindings,
+          ...prevState.keyBindings,
           { ...keyBinding, id: this.encodeKeyBinding(keyBinding) },
         ],
       }));
