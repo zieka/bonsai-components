@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.1.0...@bonsai-components/react-global-keys@1.2.0) (2021-12-27)
+
+
+### Features
+
+* **react-global-keys:** keybinding state is now an object fixing various multi binding issues ([5982b1f](https://github.com/zieka/bonsai-components/commit/5982b1fb4190d14cdaf600ab3d40b244224108bd))
+
+
+
+
+
 # [1.1.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.0.3...@bonsai-components/react-global-keys@1.1.0) (2021-12-22)
 
 
