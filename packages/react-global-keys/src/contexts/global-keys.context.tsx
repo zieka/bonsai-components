@@ -12,7 +12,16 @@ export type KeyBinding = {
   };
 };
 
-type StoredKeyBinding = KeyBinding & { id: string };
+const defaultModifier = {
+  meta: false,
+  alt: false,
+  ctrl: false,
+  shift: false,
+};
+
+type StoredKeyBinding = {
+  [key: string]: undefined | (() => void);
+};
 
 type GlobalKeysContextProps = {
   /**
@@ -28,7 +37,7 @@ type GlobalKeysContextProps = {
 
 const initialState = {
   addKeyBinding: (_keyBinding: KeyBinding) => '' as undefined | string,
-  keyBindings: [] as StoredKeyBinding[],
+  keyBindings: {} as StoredKeyBinding,
 };
 
 type GlobalKeysContextState = typeof initialState;
@@ -43,41 +52,44 @@ export class GlobalKeysProvider extends Component<
     ...initialState,
     addKeyBinding: (keyBinding): undefined | string => {
       const id = this.encodeKeyBinding(keyBinding);
-      const existingKeyBinding = this.state.keyBindings.find(
-        (kb) => kb.id === id
-      );
-      if (existingKeyBinding) {
-        if (this.props.debug) {
-          reportKeyBindingConflict(keyBinding, existingKeyBinding);
+
+      this.setState((prevState) => {
+        const existingKeyBindingAction = prevState.keyBindings[id];
+        if (existingKeyBindingAction) {
+          if (this.props.debug) {
+            reportKeyBindingConflict(keyBinding);
+          }
+          return { keyBindings: prevState.keyBindings };
         }
-        return;
-      }
-      this.setState((prevState) => ({
-        keyBindings: [
-          ...prevState.keyBindings,
-          { ...keyBinding, id: this.encodeKeyBinding(keyBinding) },
-        ],
-      }));
+        return {
+          keyBindings: {
+            ...prevState.keyBindings,
+            [id]: keyBinding.action,
+          },
+        };
+      });
       return id;
     },
   };
 
   private handleKeyDown = (e: React.KeyboardEvent<Element>): void => {
-    this.state.keyBindings.forEach((keyBinding) => {
-      const modifier = keyBinding.modifier ? keyBinding.modifier : {};
-      if (e.key === keyBinding.key) {
-        if (
-          (modifier.meta && e.metaKey) ||
-          (modifier.meta && this.props.useCtrlAsMetaAlternative && e.ctrlKey) ||
-          (modifier.alt && e.altKey) ||
-          (modifier.ctrl && e.ctrlKey) ||
-          (modifier.shift && e.shiftKey)
-        ) {
-          keyBinding.action();
-          e.preventDefault();
-        }
-      }
-    });
+    const keyId = this.encodeKeyEvent(e);
+    const targetBindingAction = this.state.keyBindings[keyId];
+    if (targetBindingAction) {
+      targetBindingAction();
+      e.preventDefault();
+    }
+  };
+
+  private encodeKeyEvent = (e: React.KeyboardEvent<Element>): string => {
+    const { key, metaKey, altKey, ctrlKey, shiftKey } = e;
+
+    return `${key}${this.encodeModifierStates(
+      metaKey,
+      altKey,
+      ctrlKey,
+      shiftKey
+    )}`;
   };
 
   private encodeKeyBinding = (keyBinding: KeyBinding): string => {
@@ -85,10 +97,27 @@ export class GlobalKeysProvider extends Component<
     if (!modifier) {
       return keyBinding.key;
     }
-    const modifiers = Object.keys(modifier)
-      .map((key) => (modifier[key] ? key[0] : ''))
-      .join('');
-    return `${keyBinding.key}${modifiers}`;
+
+    return `${keyBinding.key}${this.encodeModifierStates(
+      modifier.meta,
+      modifier.alt,
+      modifier.ctrl,
+      modifier.shift
+    )}`;
+  };
+
+  private encodeModifierStates = (
+    meta?: boolean,
+    alt?: boolean,
+    ctrl?: boolean,
+    shift?: boolean
+  ) => {
+    if (this.props.useCtrlAsMetaAlternative) {
+      return `${alt ? 'a' : ''}${ctrl || meta ? 'c' : ''}${shift ? 's' : ''}`;
+    }
+    return `${meta ? 'm' : ''}${alt ? 'a' : ''}${ctrl ? 'c' : ''}${
+      shift ? 's' : ''
+    }`;
   };
 
   private addListener = (): void => {

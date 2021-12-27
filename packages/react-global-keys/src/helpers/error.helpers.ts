@@ -1,9 +1,9 @@
-export const reportKeyBindingConflict = (newKeyBinding, existingKeyBinding) => {
+export const reportKeyBindingConflict = (newKeyBinding) => {
   console.error(
-    `adding key binding failed:\n ${JSON.stringify(
+    `Error: Conflict with existing key binding when adding:\n ${JSON.stringify(
       newKeyBinding,
       null,
       2
-    )}\n Conflicts with:\n ${JSON.stringify(existingKeyBinding, null, 2)}`
+    )}`
   );
 };
