@@ -38,7 +38,7 @@ const initialState = {
   keyBindings: new Map<string, KeyBinding>(),
 };
 
-type GlobalKeysContextState = typeof initialState;
+export type GlobalKeysContextState = typeof initialState;
 
 export const GlobalKeysContext = React.createContext(initialState);
 
