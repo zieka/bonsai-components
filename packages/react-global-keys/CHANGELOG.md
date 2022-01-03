@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.2.0...@bonsai-components/react-global-keys@1.3.0) (2022-01-03)
+
+
+### Features
+
+* **react-global-keys:** actions accept event argument, keybindings use Map ([bf49dc8](https://github.com/zieka/bonsai-components/commit/bf49dc8276cc945bdfb9caafd0daf12f62d499fa))
+* **react-global-keys:** add optional description and getKeyBindingDescriptors ([c456bd0](https://github.com/zieka/bonsai-components/commit/c456bd0313628e1223bae93340b5c73a26adf203))
+
+
+
+
+
 # [1.2.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.1.0...@bonsai-components/react-global-keys@1.2.0) (2021-12-27)
 
 
