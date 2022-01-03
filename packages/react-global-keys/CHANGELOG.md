@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.3.0...@bonsai-components/react-global-keys@1.4.0) (2022-01-03)
+
+
+### Features
+
+* **react-global-keys:** add original key binding to Map for complete meta data ([7277409](https://github.com/zieka/bonsai-components/commit/7277409eafcc39a8b94ee8cd488287a52742c81a))
+
+
+
+
+
 # [1.3.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.2.0...@bonsai-components/react-global-keys@1.3.0) (2022-01-03)
 
 
