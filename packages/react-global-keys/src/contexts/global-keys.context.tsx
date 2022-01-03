@@ -15,11 +15,6 @@ export type KeyBinding = {
   modifier?: Modifiers;
 };
 
-type ActionDescriptor = {
-  action: (e?: React.KeyboardEvent<Element>) => void;
-  description?: string;
-};
-
 type KeyBindingDescriptor = Pick<
   KeyBinding,
   'key' | 'description' | 'modifier'
@@ -40,7 +35,7 @@ type GlobalKeysContextProps = {
 const initialState = {
   addKeyBinding: (_keyBinding: KeyBinding) => '' as undefined | string,
   getKeyBindingDescriptors: () => [] as KeyBindingDescriptor[],
-  keyBindings: new Map<string, ActionDescriptor>(),
+  keyBindings: new Map<string, KeyBinding>(),
 };
 
 type GlobalKeysContextState = typeof initialState;
@@ -65,10 +60,7 @@ export class GlobalKeysProvider extends Component<
           return { keyBindings: prevState.keyBindings };
         }
         const newKeyBindingsMap = new Map(prevState.keyBindings);
-        newKeyBindingsMap.set(id, {
-          action: keyBinding.action,
-          description: keyBinding.description,
-        });
+        newKeyBindingsMap.set(id, keyBinding);
 
         return { keyBindings: newKeyBindingsMap };
       });
@@ -76,14 +68,11 @@ export class GlobalKeysProvider extends Component<
       return id;
     },
     getKeyBindingDescriptors: (): KeyBindingDescriptor[] => {
-      return Array.from(this.state.keyBindings).map((e) => {
-        const { key, modifier } = this.decodeKeyBinding(e[0]);
-        return {
-          key,
-          modifier,
-          description: e[1].description || '',
-        };
-      });
+      return Array.from(this.state.keyBindings.values()).map((e) => ({
+        key: e.key,
+        modifier: e.modifier,
+        description: e.description || '',
+      }));
     },
   };
 
@@ -114,29 +103,11 @@ export class GlobalKeysProvider extends Component<
     )}`;
   };
 
-  private decodeKeyBinding = (
-    keyBinding: string
-  ): Pick<KeyBinding, 'key' | 'modifier'> => {
-    const [key, modifier] = keyBinding.split(DELIMITER);
-
-    return {
-      key,
-      modifier: modifier ? this.decodeModifierStates(modifier) : undefined,
-    };
-  };
-
   private encodeModifierStates = (meta?: boolean, ctrl?: boolean) => {
     if (this.props.useCtrlAsMetaAlternative) {
       return `${DELIMITER}${ctrl || meta ? 'c' : ''}`;
     }
     return `${DELIMITER}${meta ? 'm' : ''}${ctrl ? 'c' : ''}`;
-  };
-
-  private decodeModifierStates = (modifier: string): Modifiers => {
-    const meta = modifier.includes('m');
-    const ctrl = modifier.includes('c');
-
-    return { meta, ctrl };
   };
 
   private addListener = (): void => {
