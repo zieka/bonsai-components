@@ -1,18 +1,24 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import { ComponentStory } from '@storybook/react';
-import { GlobalKeysProvider, useGlobalKeyBinding } from '../src';
+import {
+  GlobalKeysProvider,
+  useGlobalKeyBinding,
+  GlobalKeysContext,
+} from '../src';
 
 export default {
   title: 'Example/React-Global-Keys',
 };
 
 const KeyBinding1: FC = () => {
+  const { getKeyBindingDescriptors } = useContext(GlobalKeysContext);
   useGlobalKeyBinding([
     {
       key: 'k',
       action: () => {
         alert('meta + k');
       },
+      description: 'alert 1',
       modifier: {
         meta: true,
       },
@@ -22,6 +28,7 @@ const KeyBinding1: FC = () => {
       action: () => {
         alert('ctrl + k');
       },
+      description: 'alert 2',
       modifier: {
         ctrl: true,
       },
@@ -51,6 +58,7 @@ const KeyBinding1: FC = () => {
     {
       key: '˚',
       action: () => {
+        console.log(JSON.stringify(getKeyBindingDescriptors(), null, 2));
         alert('ctrl + meta + alt + k');
       },
       modifier: {

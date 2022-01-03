@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import { reportKeyBindingConflict } from '../helpers/error.helpers';
 
+const DELIMITER = '#!';
+
+type Modifiers = {
+  meta?: boolean;
+  ctrl?: boolean;
+};
+
 export type KeyBinding = {
   key: string;
   action: (e?: React.KeyboardEvent<Element>) => void;
   description?: string;
-  modifier?: {
-    meta?: boolean;
-    ctrl?: boolean;
-  };
+  modifier?: Modifiers;
 };
 
 type ActionDescriptor = {
   action: (e?: React.KeyboardEvent<Element>) => void;
   description?: string;
 };
+
+type KeyBindingDescriptor = Pick<
+  KeyBinding,
+  'key' | 'description' | 'modifier'
+>;
 
 type GlobalKeysContextProps = {
   /**
@@ -30,6 +39,7 @@ type GlobalKeysContextProps = {
 
 const initialState = {
   addKeyBinding: (_keyBinding: KeyBinding) => '' as undefined | string,
+  getKeyBindingDescriptors: () => [] as KeyBindingDescriptor[],
   keyBindings: new Map<string, ActionDescriptor>(),
 };
 
@@ -65,6 +75,16 @@ export class GlobalKeysProvider extends Component<
 
       return id;
     },
+    getKeyBindingDescriptors: (): KeyBindingDescriptor[] => {
+      return Array.from(this.state.keyBindings).map((e) => {
+        const { key, modifier } = this.decodeKeyBinding(e[0]);
+        return {
+          key,
+          modifier,
+          description: e[1].description || '',
+        };
+      });
+    },
   };
 
   private handleKeyDown = (e: React.KeyboardEvent<Element>): void => {
@@ -85,7 +105,7 @@ export class GlobalKeysProvider extends Component<
   private encodeKeyBinding = (keyBinding: KeyBinding): string => {
     const modifier = keyBinding.modifier ? keyBinding.modifier : null;
     if (!modifier) {
-      return keyBinding.key;
+      return `${keyBinding.key}${DELIMITER}`;
     }
 
     return `${keyBinding.key}${this.encodeModifierStates(
@@ -94,11 +114,29 @@ export class GlobalKeysProvider extends Component<
     )}`;
   };
 
+  private decodeKeyBinding = (
+    keyBinding: string
+  ): Pick<KeyBinding, 'key' | 'modifier'> => {
+    const [key, modifier] = keyBinding.split(DELIMITER);
+
+    return {
+      key,
+      modifier: modifier ? this.decodeModifierStates(modifier) : undefined,
+    };
+  };
+
   private encodeModifierStates = (meta?: boolean, ctrl?: boolean) => {
     if (this.props.useCtrlAsMetaAlternative) {
-      return `${ctrl || meta ? 'c' : ''}`;
+      return `${DELIMITER}${ctrl || meta ? 'c' : ''}`;
     }
-    return `${meta ? 'm' : ''}${ctrl ? 'c' : ''}`;
+    return `${DELIMITER}${meta ? 'm' : ''}${ctrl ? 'c' : ''}`;
+  };
+
+  private decodeModifierStates = (modifier: string): Modifiers => {
+    const meta = modifier.includes('m');
+    const ctrl = modifier.includes('c');
+
+    return { meta, ctrl };
   };
 
   private addListener = (): void => {
