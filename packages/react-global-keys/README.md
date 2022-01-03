@@ -47,7 +47,7 @@ Now in any component use the `useGlobalKeyBinding` hook to add some key mappings
 ```tsx
 import { useGlobalKeyBinding } from '@bonsai-components/react-global-keys';
 
-const awesomeAction = () => {
+const awesomeAction = (e) => {
   //... your action code here
 };
 
@@ -73,3 +73,9 @@ useGlobalKeyBinding([
   },
 ]);
 ```
+
+### Key Support
+
+Currently supporting `event.key` which means to use modifiers like `shift` and
+`alt` you will need to pass the specific key character generated. For example,
+to create a key bind for `shift + m` you would provide `key: 'M'`

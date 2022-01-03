@@ -27,9 +27,31 @@ const KeyBinding1: FC = () => {
       },
     },
     {
+      key: 'K',
+      action: () => {
+        alert('shift + k');
+      },
+    },
+    {
+      key: '˚',
+      action: () => {
+        alert('alt + k');
+      },
+    },
+    {
       key: 'k',
       action: () => {
         alert('ctrl + meta + k');
+      },
+      modifier: {
+        ctrl: true,
+        meta: true,
+      },
+    },
+    {
+      key: '˚',
+      action: () => {
+        alert('ctrl + meta + alt + k');
       },
       modifier: {
         ctrl: true,
