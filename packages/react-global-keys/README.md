@@ -93,7 +93,7 @@ Here you will be able to add `shift` and `alt` to the modifier object.
 ```tsx
 useGlobalKeyBinding([
   {
-    key: 'KeyK',
+    code: 'KeyK',
     action: awesomeAction,
     modifier: { shift: true },
   },
