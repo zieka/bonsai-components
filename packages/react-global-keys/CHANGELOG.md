@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.4.0...@bonsai-components/react-global-keys@1.5.0) (2022-01-07)
+
+
+### Features
+
+* **react-global-keys:** add support for event.code ([783fbd1](https://github.com/zieka/bonsai-components/commit/783fbd1e343a0c17efb9a6c3abeb2aa1c3ed0069))
+
+
+
+
+
 # [1.4.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.3.0...@bonsai-components/react-global-keys@1.4.0) (2022-01-03)
 
 
