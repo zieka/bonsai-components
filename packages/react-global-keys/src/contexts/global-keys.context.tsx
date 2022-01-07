@@ -133,11 +133,11 @@ export class GlobalKeysProvider extends Component<
   private encodeKeyEvent = (
     e: React.KeyboardEvent<Element>
   ): [string, string] => {
-    const { key, code, metaKey, ctrlKey } = e;
+    const { key, code, metaKey, ctrlKey, altKey, shiftKey } = e;
 
     return [
       `${key}${this.encodeModifierStates(metaKey, ctrlKey)}`,
-      `${code}${this.encodeModifierStates(metaKey, ctrlKey)}`,
+      `${code}${this.encodeModifierStates(metaKey, ctrlKey, altKey, shiftKey)}`,
     ];
   };
 

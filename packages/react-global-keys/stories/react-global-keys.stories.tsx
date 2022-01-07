@@ -180,6 +180,16 @@ const KeyBinding4: FC = () => {
     {
       code: 'KeyK',
       action: () => {
+        alert('alt + ctrl + k');
+      },
+      modifier: {
+        alt: true,
+        ctrl: true
+      },
+    },
+    {
+      code: 'KeyK',
+      action: () => {
         console.log(JSON.stringify(getKeyBindingDescriptors(), null, 2));
         alert('ctrl + meta + k');
       },
