@@ -76,6 +76,30 @@ useGlobalKeyBinding([
 
 ### Key Support
 
-Currently supporting `event.key` which means to use modifiers like `shift` and
-`alt` you will need to pass the specific key character generated. For example,
-to create a key bind for `shift + m` you would provide `key: 'M'`
+#### By Key
+
+You may notice when defining a key in the key binding we declare `key: 'k'`.
+This field `key` accepts the valid set of keys from `event.key`, which means to
+use modifiers like `shift` and `alt` you will need to pass the specific key
+character generated.
+For example, to create a key bind for `shift + m` you would provide `key: 'M'`
+
+#### By Code
+
+Alternatively, you can also define bindings by code using the field `code` instead
+of `key`. This field `code` accepts the valid set of codes from `event.code`.
+Here you will be able to add `shift` and `alt` to the modifier object.
+
+```tsx
+useGlobalKeyBinding([
+  {
+    key: 'KeyK',
+    action: awesomeAction,
+    modifier: { shift: true },
+  },
+]);
+```
+
+Important to note that when you bind by code you are really binding actions to a
+combinations of key positions that do not change if someone were to remap the
+characters on their keyboard.

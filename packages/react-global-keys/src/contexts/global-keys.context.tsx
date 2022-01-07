@@ -3,24 +3,52 @@ import { reportKeyBindingConflict } from '../helpers/error.helpers';
 
 const DELIMITER = '#!';
 
-type Modifiers = {
+export type ModifiersByKey = {
   meta?: boolean;
   ctrl?: boolean;
 };
 
-export type KeyBinding = {
+export type ModifiersByCode = ModifiersByKey & {
+  alt?: boolean;
+  shift?: boolean;
+};
+
+export type BindingByKey = {
   key: string;
   action: (e?: React.KeyboardEvent<Element>) => void;
   description?: string;
-  modifier?: Modifiers;
+  modifier?: ModifiersByKey;
 };
 
-type KeyBindingDescriptor = Pick<
-  KeyBinding,
+export type BindingByCode = {
+  code: string;
+  action: (e?: React.KeyboardEvent<Element>) => void;
+  description?: string;
+  modifier?: ModifiersByCode;
+};
+
+export type KeyBinding = BindingByKey | BindingByCode;
+
+export type BindingDescriptorByKey = Pick<
+  BindingByKey,
   'key' | 'description' | 'modifier'
 >;
+export type BindingDescriptorByCode = Pick<
+  BindingByCode,
+  'code' | 'description' | 'modifier'
+>;
 
-type GlobalKeysContextProps = {
+export type KeyBindingDescriptor =
+  | BindingDescriptorByKey
+  | BindingDescriptorByCode;
+
+const hasCode = (
+  descriptor: KeyBindingDescriptor
+): descriptor is BindingDescriptorByCode => {
+  return Boolean((descriptor as BindingDescriptorByCode).code);
+};
+
+export type GlobalKeysContextProps = {
   /**
    * Set to see console messages
    */
@@ -68,46 +96,89 @@ export class GlobalKeysProvider extends Component<
       return id;
     },
     getKeyBindingDescriptors: (): KeyBindingDescriptor[] => {
-      return Array.from(this.state.keyBindings.values()).map((e) => ({
-        key: e.key,
-        modifier: e.modifier,
-        description: e.description || '',
-      }));
+      return Array.from(this.state.keyBindings.values()).map((e) => {
+        if (hasCode(e)) {
+          return {
+            code: e.code,
+            modifier: e.modifier,
+            description: e.description || '',
+          };
+        } else {
+          return {
+            key: e.key,
+            modifier: e.modifier,
+            description: e.description || '',
+          };
+        }
+      });
     },
   };
 
   private handleKeyDown = (e: React.KeyboardEvent<Element>): void => {
-    const keyId = this.encodeKeyEvent(e);
-    const targetBindingAction = this.state.keyBindings.get(keyId)?.action;
-    if (targetBindingAction) {
-      targetBindingAction(e);
+    const [keyId, codeId] = this.encodeKeyEvent(e);
+    // for now only one binding will win
+    if (this.state.keyBindings.has(keyId)) {
+      this.state.keyBindings.get(keyId)!.action(e);
       e.preventDefault();
+      return;
+    }
+
+    if (this.state.keyBindings.has(codeId)) {
+      this.state.keyBindings.get(codeId)!.action(e);
+      e.preventDefault();
+      return;
     }
   };
 
-  private encodeKeyEvent = (e: React.KeyboardEvent<Element>): string => {
-    const { key, metaKey, ctrlKey } = e;
+  private encodeKeyEvent = (
+    e: React.KeyboardEvent<Element>
+  ): [string, string] => {
+    const { key, code, metaKey, ctrlKey } = e;
 
-    return `${key}${this.encodeModifierStates(metaKey, ctrlKey)}`;
+    return [
+      `${key}${this.encodeModifierStates(metaKey, ctrlKey)}`,
+      `${code}${this.encodeModifierStates(metaKey, ctrlKey)}`,
+    ];
   };
 
   private encodeKeyBinding = (keyBinding: KeyBinding): string => {
-    const modifier = keyBinding.modifier ? keyBinding.modifier : null;
-    if (!modifier) {
-      return `${keyBinding.key}${DELIMITER}`;
+    const modifier = keyBinding.modifier
+      ? (keyBinding.modifier as ModifiersByCode)
+      : null;
+    let identifier;
+
+    if (hasCode(keyBinding)) {
+      identifier = keyBinding.code;
+    } else {
+      identifier = keyBinding.key;
     }
 
-    return `${keyBinding.key}${this.encodeModifierStates(
+    if (!modifier) {
+      return `${identifier}${DELIMITER}`;
+    }
+
+    return `${identifier}${this.encodeModifierStates(
       modifier.meta,
-      modifier.ctrl
+      modifier.ctrl,
+      modifier.alt,
+      modifier.shift
     )}`;
   };
 
-  private encodeModifierStates = (meta?: boolean, ctrl?: boolean) => {
+  private encodeModifierStates = (
+    meta?: boolean,
+    ctrl?: boolean,
+    alt?: boolean,
+    shift?: boolean
+  ) => {
     if (this.props.useCtrlAsMetaAlternative) {
-      return `${DELIMITER}${ctrl || meta ? 'c' : ''}`;
+      return `${DELIMITER}${ctrl || meta ? 'c' : ''}${alt ? 'a' : ''}${
+        shift ? 's' : ''
+      }`;
     }
-    return `${DELIMITER}${meta ? 'm' : ''}${ctrl ? 'c' : ''}`;
+    return `${DELIMITER}${meta ? 'm' : ''}${ctrl ? 'c' : ''}${alt ? 'a' : ''}${
+      shift ? 's' : ''
+    }`;
   };
 
   private addListener = (): void => {
