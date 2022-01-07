@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.5.0...@bonsai-components/react-global-keys@1.5.1) (2022-01-07)
+
+
+### Bug Fixes
+
+* issue shift and alt when binding by code ([0ae8ec1](https://github.com/zieka/bonsai-components/commit/0ae8ec13be1368f610fdeeaa1c2de768b5e35e86))
+
+
+
+
+
 # [1.5.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.4.0...@bonsai-components/react-global-keys@1.5.0) (2022-01-07)
 
 
