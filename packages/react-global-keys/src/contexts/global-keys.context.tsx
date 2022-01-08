@@ -117,14 +117,13 @@ export class GlobalKeysProvider extends Component<
   private handleKeyDown = (e: React.KeyboardEvent<Element>): void => {
     const [keyId, codeId] = this.encodeKeyEvent(e);
     // for now only one binding will win
-    if (this.state.keyBindings.has(keyId)) {
-      this.state.keyBindings.get(keyId)!.action(e);
+    if (this.state.keyBindings.has(codeId)) {
+      this.state.keyBindings.get(codeId)!.action(e);
       e.preventDefault();
       return;
     }
-
-    if (this.state.keyBindings.has(codeId)) {
-      this.state.keyBindings.get(codeId)!.action(e);
+    if (this.state.keyBindings.has(keyId)) {
+      this.state.keyBindings.get(keyId)!.action(e);
       e.preventDefault();
       return;
     }
