@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.5.1...@bonsai-components/react-global-keys@1.5.2) (2022-01-08)
+
+
+### Bug Fixes
+
+* **react-global-keys:** make code take higher priority ([f69b378](https://github.com/zieka/bonsai-components/commit/f69b3782705062dedaba411482daea4c7f78acbb))
+
+
+
+
+
 ## [1.5.1](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.5.0...@bonsai-components/react-global-keys@1.5.1) (2022-01-07)
 
 
