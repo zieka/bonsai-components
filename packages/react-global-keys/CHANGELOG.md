@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.5.2...@bonsai-components/react-global-keys@1.6.0) (2022-01-11)
+
+
+### Features
+
+* **react-global-keys:** remove prevent default as a default ([6a24afa](https://github.com/zieka/bonsai-components/commit/6a24afa6312b59c337f81013558a857a39301214))
+
+
+
+
+
 ## [1.5.2](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.5.1...@bonsai-components/react-global-keys@1.5.2) (2022-01-08)
 
 
