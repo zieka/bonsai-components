@@ -37,11 +37,17 @@ const KeyBinding1: FC = () => {
       action: () => {
         alert('shift + k');
       },
+      modifier: {
+        shift: true,
+      },
     },
     {
       key: '˚',
       action: () => {
         alert('alt + k');
+      },
+      modifier: {
+        alt: true,
       },
     },
     {
@@ -64,6 +70,7 @@ const KeyBinding1: FC = () => {
       modifier: {
         ctrl: true,
         meta: true,
+        alt: true,
       },
     },
   ]);
@@ -184,7 +191,7 @@ const KeyBinding4: FC = () => {
       },
       modifier: {
         alt: true,
-        ctrl: true
+        ctrl: true,
       },
     },
     {
@@ -228,7 +235,7 @@ const KeyBinding5: FC = () => {
     {
       code: 'KeyK',
       action: () => {
-        alert('alt + k');
+        alert(`alt + k - code: 'KeyK' + alt: true`);
       },
       description: 'alert 1',
       modifier: {
@@ -236,12 +243,24 @@ const KeyBinding5: FC = () => {
       },
     },
     {
-      key: '˚',
+      key: 'k',
       action: () => {
-        alert('alt + k');
+        alert(`alt + k - key: '˚' + alt: true`);
       },
       description: 'alert 2',
-      modifier: {},
+      modifier: {
+        alt: true,
+      },
+    },
+    {
+      key: '˚',
+      action: () => {
+        alert(`alt + k - code: key: '˚'`);
+      },
+      description: 'alert 3',
+      modifier: {
+        alt: true,
+      },
     },
   ]);
 

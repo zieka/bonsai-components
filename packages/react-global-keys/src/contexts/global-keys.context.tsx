@@ -3,12 +3,9 @@ import { reportKeyBindingConflict } from '../helpers/error.helpers';
 
 const DELIMITER = '#!';
 
-export type ModifiersByKey = {
+export type Modifiers = {
   meta?: boolean;
   ctrl?: boolean;
-};
-
-export type ModifiersByCode = ModifiersByKey & {
   alt?: boolean;
   shift?: boolean;
 };
@@ -17,14 +14,14 @@ export type BindingByKey = {
   key: string;
   action: (e?: React.KeyboardEvent<Element>) => void;
   description?: string;
-  modifier?: ModifiersByKey;
+  modifier?: Modifiers;
 };
 
 export type BindingByCode = {
   code: string;
   action: (e?: React.KeyboardEvent<Element>) => void;
   description?: string;
-  modifier?: ModifiersByCode;
+  modifier?: Modifiers;
 };
 
 export type KeyBinding = BindingByKey | BindingByCode;
@@ -116,6 +113,7 @@ export class GlobalKeysProvider extends Component<
 
   private handleKeyDown = (e: React.KeyboardEvent<Element>): void => {
     const [keyId, codeId] = this.encodeKeyEvent(e);
+    console.log(JSON.stringify({ keyId, codeId }, null, 2));
     // for now only one binding will win
     if (this.state.keyBindings.has(codeId)) {
       return this.state.keyBindings.get(codeId)!.action(e);
@@ -131,14 +129,14 @@ export class GlobalKeysProvider extends Component<
     const { key, code, metaKey, ctrlKey, altKey, shiftKey } = e;
 
     return [
-      `${key}${this.encodeModifierStates(metaKey, ctrlKey)}`,
+      `${key}${this.encodeModifierStates(metaKey, ctrlKey, altKey, shiftKey)}`,
       `${code}${this.encodeModifierStates(metaKey, ctrlKey, altKey, shiftKey)}`,
     ];
   };
 
   private encodeKeyBinding = (keyBinding: KeyBinding): string => {
     const modifier = keyBinding.modifier
-      ? (keyBinding.modifier as ModifiersByCode)
+      ? (keyBinding.modifier as Modifiers)
       : null;
     let identifier;
 
