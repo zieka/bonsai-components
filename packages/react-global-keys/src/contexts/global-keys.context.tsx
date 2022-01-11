@@ -118,14 +118,10 @@ export class GlobalKeysProvider extends Component<
     const [keyId, codeId] = this.encodeKeyEvent(e);
     // for now only one binding will win
     if (this.state.keyBindings.has(codeId)) {
-      this.state.keyBindings.get(codeId)!.action(e);
-      e.preventDefault();
-      return;
+      return this.state.keyBindings.get(codeId)!.action(e);
     }
     if (this.state.keyBindings.has(keyId)) {
-      this.state.keyBindings.get(keyId)!.action(e);
-      e.preventDefault();
-      return;
+      return this.state.keyBindings.get(keyId)!.action(e);
     }
   };
 
