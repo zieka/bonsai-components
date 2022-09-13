@@ -274,3 +274,62 @@ export const KeyBindsMixed = () => {
     </GlobalKeysProvider>
   );
 };
+
+const KeyBinding6: FC = () => {
+  useGlobalKeyBinding([
+    {
+      code: 'KeyQ',
+      action: () => {
+        alert(`Hello World`);
+      },
+      description: 'alert 1',
+    },
+    {
+      code: 'KeyW',
+      action: () => {
+        alert(`Hello World`);
+      },
+      description: 'alert 1',
+    },
+  ]);
+
+  useGlobalKeyBinding([
+    {
+      code: 'KeyE',
+      action: () => {
+        alert(`Hello World`);
+      },
+      description: 'alert 1',
+    },
+  ]);
+
+  useGlobalKeyBinding([
+    {
+      code: 'KeyR',
+      action: () => {
+        alert(`Hello World`);
+      },
+      description: 'alert 1',
+    },
+  ]);
+
+  useGlobalKeyBinding([
+    {
+      code: 'KeyT',
+      action: () => {
+        alert(`Hello World`);
+      },
+      description: 'alert 1',
+    },
+  ]);
+
+  return <div>Try out some keybinds!</div>;
+};
+
+export const OverrideBinding = () => {
+  return (
+    <GlobalKeysProvider>
+      <KeyBinding6 />
+    </GlobalKeysProvider>
+  );
+};

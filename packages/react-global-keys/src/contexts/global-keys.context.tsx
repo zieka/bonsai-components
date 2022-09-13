@@ -58,7 +58,8 @@ export type GlobalKeysContextProps = {
 };
 
 const initialState = {
-  addKeyBinding: (_keyBinding: KeyBinding) => '' as undefined | string,
+  addKeyBinding: (_keyBinding: KeyBinding, _override?: boolean) =>
+    '' as undefined | string,
   getKeyBindingDescriptors: () => [] as KeyBindingDescriptor[],
   keyBindings: new Map<string, KeyBinding>(),
 };
@@ -73,12 +74,12 @@ export class GlobalKeysProvider extends Component<
 > {
   readonly state: GlobalKeysContextState = {
     ...initialState,
-    addKeyBinding: (keyBinding): undefined | string => {
+    addKeyBinding: (keyBinding, override = false): undefined | string => {
       const id = this.encodeKeyBinding(keyBinding);
 
       this.setState((prevState) => {
         const existingKeyBindingAction = prevState.keyBindings.has(id);
-        if (existingKeyBindingAction) {
+        if (!override && existingKeyBindingAction) {
           if (this.props.debug) {
             reportKeyBindingConflict(keyBinding);
           }
