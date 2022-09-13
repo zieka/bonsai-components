@@ -114,7 +114,9 @@ export class GlobalKeysProvider extends ComponentWithChildren<
 
   private handleKeyDown = (e: React.KeyboardEvent<Element>): void => {
     const [keyId, codeId] = this.encodeKeyEvent(e);
-    console.log(JSON.stringify({ keyId, codeId }, null, 2));
+    if (this.props.debug) {
+      console.log(JSON.stringify({ keyId, codeId }, null, 2));
+    }
     // for now only one binding will win
     if (this.state.keyBindings.has(codeId)) {
       return this.state.keyBindings.get(codeId)!.action(e);
