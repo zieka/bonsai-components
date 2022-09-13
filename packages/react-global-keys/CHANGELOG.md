@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@2.0.0...@bonsai-components/react-global-keys@2.0.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* **react-global-keys:** only console log with debug prop set ([86c5bc9](https://github.com/zieka/bonsai-components/commit/86c5bc979012fe161f0576c3789fc1cf34ab6836))
+
+
+
+
+
 # [2.0.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.6.0...@bonsai-components/react-global-keys@2.0.0) (2022-09-13)
 
 
