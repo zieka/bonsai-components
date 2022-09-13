@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.6.0...@bonsai-components/react-global-keys@2.0.0) (2022-09-13)
+
+
+### Features
+
+* add react 18 support ([db17c55](https://github.com/zieka/bonsai-components/commit/db17c553f64770c130a34d983ba06c85bd6f3a64))
+* **react-global-keys:** allow alt and shift modifiers when binding by key ([c5e555d](https://github.com/zieka/bonsai-components/commit/c5e555daf34847ed8f9e51d2837456ec6cd85ebe))
+* update jest ([7ff7af6](https://github.com/zieka/bonsai-components/commit/7ff7af62c668ed627ae43c482bb0409502a37c3e))
+
+
+### BREAKING CHANGES
+
+* **react-global-keys:** If you were binding by key and provided specific characters for shift or alt you
+now need to also provide the appropriate modifier to the modifier objec
+
+
+
+
+
 # [1.6.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@1.5.2...@bonsai-components/react-global-keys@1.6.0) (2022-01-11)
 
 
