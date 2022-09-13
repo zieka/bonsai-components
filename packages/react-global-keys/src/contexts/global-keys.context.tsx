@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reportKeyBindingConflict } from '../helpers/error.helpers';
+import { ComponentWithChildren } from '../helpers/utility-types';
 
 const DELIMITER = '#!';
 
@@ -67,7 +68,7 @@ export type GlobalKeysContextState = typeof initialState;
 
 export const GlobalKeysContext = React.createContext(initialState);
 
-export class GlobalKeysProvider extends Component<
+export class GlobalKeysProvider extends ComponentWithChildren<
   GlobalKeysContextProps,
   GlobalKeysContextState
 > {
