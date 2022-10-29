@@ -1,12 +1,10 @@
 {
-  "name": "@bonsai-components/react-global-keys",
-  "version": "2.0.1",
-  "description": "A simple way to add global keys",
-  "main": "./dist/index.js",
+  "name": "@bonsai-components/utility-types",
+  "version": "0.1.0",
+  "description": "useful typescript types",
   "license": "(MIT OR Apache-2.0)",
   "public": true,
   "scripts": {
-    "build": "cti -b ./src && tsc",
     "check-types": "tsc --noEmit",
     "prettier-check": "prettier --config package.json --list-different '{,**/}*.{js,ts,json,graphql}'",
     "prettier-format": "prettier --config package.json --write '{,**/}*.{js,ts,json,graphql}'"
@@ -15,19 +13,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "dependencies": {
-    "@bonsai-components/utility-types": "../utility-types"
-  },
   "author": "Kyle Scully",
   "keywords": [
+    "typescript",
+    "utility",
+    "types",
+    "type",
+    "type-safe",
     "react",
-    "global",
-    "key",
-    "keys",
-    "listener",
-    "commands",
-    "shortcuts",
-    "keyboard",
     "bonsai",
     "bonsai-components"
   ],
