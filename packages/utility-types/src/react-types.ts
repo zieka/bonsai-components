@@ -4,9 +4,8 @@ import {
   WeakValidationMap,
   ValidationMap,
   Component,
-} from "react";
-
-export type UnknownRecord = Record<string | number | symbol, unknown>;
+} from 'react';
+import { UnknownRecord } from './general-types';
 
 export interface FunctionComponentWithChildren<P = UnknownRecord> {
   (

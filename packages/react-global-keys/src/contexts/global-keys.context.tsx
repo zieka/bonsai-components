@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reportKeyBindingConflict } from '../helpers/error.helpers';
-import { ComponentWithChildren } from '../helpers/utility-types';
+import { ComponentWithChildren } from '@bonsai-components/utility-types';
 
 const DELIMITER = '#!';
 
