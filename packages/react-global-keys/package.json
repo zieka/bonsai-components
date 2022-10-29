@@ -16,7 +16,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@bonsai-components/utility-types": "../utility-types"
+    "@bonsai-components/utility-types": "file:../utility-types"
   },
   "author": "Kyle Scully",
   "keywords": [
