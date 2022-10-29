@@ -14,3 +14,10 @@ export type PartialPick<T, K extends keyof T> = Partial<Pick<T, K>> &
  */
 export type RequiredPick<T, K extends keyof T> = Required<Pick<T, K>> &
   Omit<T, K>;
+
+/**
+ * Define a pure function through generics for readability purposes
+ */
+export interface PureFunction<P, R> {
+  (props: P): R;
+}
