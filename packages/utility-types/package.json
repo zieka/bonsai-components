@@ -3,11 +3,11 @@
   "version": "0.3.0",
   "description": "useful typescript types",
   "license": "(MIT OR Apache-2.0)",
-  "types": "src/index.d.ts",
   "public": true,
   "scripts": {
     "build": "cti -b ./src -o ./index.d.ts && tsc",
     "check-types": "tsc --noEmit",
+    "rebuild": "rm -rf node_modules && rm -f package-lock.json && npm install",
     "prettier-check": "prettier --config package.json --list-different '{,**/}*.{js,ts,json,graphql}'",
     "prettier-format": "prettier --config package.json --write '{,**/}*.{js,ts,json,graphql}'"
   },

@@ -14,6 +14,8 @@
   "scripts": {
     "build": "lerna run build",
     "check-types": "lerna run check-types",
+    "bootstrap": "lerna bootstrap",
+    "rebuild": "lerna run rebuild",
     "prettier-check": "prettier --config package.json --list-different '{,**/}*.{js,ts,json,graphql}'",
     "prettier-format": "prettier --config package.json --write '{,**/}*.{js,ts,json,graphql}'",
     "publish": "npm run build && lerna publish",
@@ -37,7 +39,7 @@
     "cz-conventional-changelog": "3.3.0",
     "jest": "29.0.3",
     "jest-cli": "29.0.3",
-    "lerna": "6.5.1",
+    "lerna": "^6.5.1",
     "prettier": "2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -48,6 +50,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "dependencies": {}
+  }
 }

@@ -1,10 +1,11 @@
-import {
+import type {
   ReactNode,
   ReactElement,
   WeakValidationMap,
   ValidationMap,
-  Component,
 } from 'react';
+
+import { Component } from 'react';
 import { UnknownRecord } from './general-types';
 
 export interface FunctionComponentWithChildren<P = UnknownRecord> {

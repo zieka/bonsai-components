@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { reportKeyBindingConflict } from '../helpers/error.helpers';
-import { ComponentWithChildren } from '@bonsai-components/utility-types';
 
 const DELIMITER = '#!';
 
@@ -56,6 +55,7 @@ export type GlobalKeysContextProps = {
    * meta binds
    */
   useCtrlAsMetaAlternative?: boolean;
+  children: React.ReactNode;
 };
 
 const initialState = {
@@ -68,7 +68,7 @@ export type GlobalKeysContextState = typeof initialState;
 
 export const GlobalKeysContext = React.createContext(initialState);
 
-export class GlobalKeysProvider extends ComponentWithChildren<
+export class GlobalKeysProvider extends Component<
   GlobalKeysContextProps,
   GlobalKeysContextState
 > {
