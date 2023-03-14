@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/zieka/bonsai-components/compare/@bonsai-components/utility-types@0.4.0...@bonsai-components/utility-types@0.4.1) (2023-03-14)
+
+### Bug Fixes
+
+- improve return type again ([8f26278](https://github.com/zieka/bonsai-components/commit/8f262780aa59d68e7bafabbade0c0bc2103836f0))
+
 # [0.4.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/utility-types@0.3.2...@bonsai-components/utility-types@0.4.0) (2023-03-14)
 
 ### Features
