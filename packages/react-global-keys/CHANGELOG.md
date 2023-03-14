@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@2.0.1...@bonsai-components/react-global-keys@2.2.0) (2023-03-14)
+
+### Features
+
+- **detect-os:** add new package ([573c663](https://github.com/zieka/bonsai-components/commit/573c6636eb940abdd888efe0908a0f9e49649220))
+- **utility-types:** add new utility types package ([eded347](https://github.com/zieka/bonsai-components/commit/eded347697747dd623c98792c2d228b50cde2521))
+- **utility-types:** add pure function ([9ae868a](https://github.com/zieka/bonsai-components/commit/9ae868a33953ee6364725f58ed855685668f0537))
+
 # [2.1.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/react-global-keys@2.0.1...@bonsai-components/react-global-keys@2.1.0) (2023-03-14)
 
 ### Features
