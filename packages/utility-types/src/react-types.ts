@@ -1,9 +1,4 @@
-import type {
-  ReactNode,
-  ReactElement,
-  WeakValidationMap,
-  ValidationMap,
-} from 'react';
+import type { ReactNode, WeakValidationMap, ValidationMap } from 'react';
 
 import { Component } from 'react';
 import { UnknownRecord } from './general-types';
@@ -12,7 +7,7 @@ export interface FunctionComponentWithChildren<P = UnknownRecord> {
   (
     props: P & { children?: ReactNode | undefined },
     context?: unknown
-  ): ReactNode | null;
+  ): JSX.Element | null;
   propTypes?: WeakValidationMap<P> | undefined;
   contextTypes?: ValidationMap<unknown> | undefined;
   defaultProps?: Partial<P> | undefined;
