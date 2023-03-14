@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "useful typescript types",
   "license": "(MIT OR Apache-2.0)",
+  "types": "src/index.d.ts",
   "public": true,
   "scripts": {
     "build": "cti -b ./src -o ./index.d.ts && tsc",

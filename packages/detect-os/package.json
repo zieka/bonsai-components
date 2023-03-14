@@ -1,7 +1,7 @@
 {
-  "name": "@bonsai-components/meta-key",
-  "version": "1.0.3",
-  "description": "Make meta key less annoying",
+  "name": "@bonsai-components/detect-os",
+  "version": "0.1.0",
+  "description": "Make detecting user os less annoying",
   "main": "./dist/index.js",
   "license": "(MIT OR Apache-2.0)",
   "public": true,
@@ -18,8 +18,5 @@
     "meta-key",
     "cross-browser",
     "cross-platform"
-  ],
-  "dependencies": {
-    "@bonsai-components/detect-os": "file:../detect-os"
-  }
+  ]
 }

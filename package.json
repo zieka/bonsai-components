@@ -3,7 +3,7 @@
   "description": "simple awesome components",
   "private": true,
   "license": "(MIT OR Apache-2.0)",
-  "repository": "https://github.com/zieka/graphql-reshape",
+  "repository": "https://github.com/zieka/bonsai-components",
   "author": {
     "name": "Kyle Scully",
     "url": "https://github.com/zieka"
