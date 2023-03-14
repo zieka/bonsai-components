@@ -12,7 +12,7 @@ export interface FunctionComponentWithChildren<P = UnknownRecord> {
   (
     props: P & { children?: ReactNode | undefined },
     context?: unknown
-  ): ReactElement<unknown, any> | null;
+  ): ReactNode | null;
   propTypes?: WeakValidationMap<P> | undefined;
   contextTypes?: ValidationMap<unknown> | undefined;
   defaultProps?: Partial<P> | undefined;
