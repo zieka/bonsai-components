@@ -55,6 +55,7 @@ export type GlobalKeysContextProps = {
    * meta binds
    */
   useCtrlAsMetaAlternative?: boolean;
+  disableKeybindings?: boolean;
   children: React.ReactNode;
 };
 
@@ -200,6 +201,9 @@ export class GlobalKeysProvider extends Component<
   }
 
   render(): JSX.Element {
+    if (this.props.disableKeybindings) {
+      return <>{this.props.children}</>;
+    }
     return (
       <GlobalKeysContext.Provider value={this.state}>
         {this.props.children}
