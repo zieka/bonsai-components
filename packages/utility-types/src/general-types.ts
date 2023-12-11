@@ -21,3 +21,10 @@ export type RequiredPick<T, K extends keyof T> = Required<Pick<T, K>> &
 export interface PureFunction<P, R> {
   (props: P): R;
 }
+
+/**
+ * Provide an object type and a string to get a new type that filters out all keys that contain the string
+ */
+type FilterOutKeyLike<T,K> = {
+	[Key in keyof T as Key extends `${infer Start}${K & string}${infer End}` ? never : Key]: T[Key]
+}
