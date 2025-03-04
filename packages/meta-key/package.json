@@ -1,6 +1,6 @@
 {
   "name": "@bonsai-components/meta-key",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Make meta key less annoying",
   "main": "./dist/index.js",
   "license": "(MIT OR Apache-2.0)",
