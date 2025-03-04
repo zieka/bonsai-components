@@ -1,6 +1,6 @@
 {
   "name": "@bonsai-components/utility-types",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "useful typescript types",
   "license": "(MIT OR Apache-2.0)",
   "main": "./dist/index.js",
