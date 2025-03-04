@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/utility-types@0.4.1...@bonsai-components/utility-types@0.5.0) (2025-03-04)
+
+### Features
+
+- **utility-types:** add FilterOutKeyLike ([fdb4d10](https://github.com/zieka/bonsai-components/commit/fdb4d109ca8b147942d1f1557283191b4f6579a0))
+
 ## [0.4.1](https://github.com/zieka/bonsai-components/compare/@bonsai-components/utility-types@0.4.0...@bonsai-components/utility-types@0.4.1) (2023-03-14)
 
 ### Bug Fixes

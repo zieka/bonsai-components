@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/zieka/bonsai-components/compare/@bonsai-components/meta-key@1.2.1...@bonsai-components/meta-key@1.2.2) (2025-03-04)
+
+**Note:** Version bump only for package @bonsai-components/meta-key
+
 ## [1.2.1](https://github.com/zieka/bonsai-components/compare/@bonsai-components/meta-key@1.2.0...@bonsai-components/meta-key@1.2.1) (2023-03-14)
 
 **Note:** Version bump only for package @bonsai-components/meta-key
