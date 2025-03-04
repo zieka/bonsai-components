@@ -1,6 +1,6 @@
 {
   "name": "@bonsai-components/utility-types",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "useful typescript types",
   "license": "(MIT OR Apache-2.0)",
   "main": "./dist/index.js",
@@ -29,5 +29,5 @@
     "bonsai-components"
   ],
   "repository": "https://github.com/zieka/bonsai-components/tree/main/packages/react-global-keys",
-  "gitHead": "b71ab9e2b2c02655d1d090f6be8e097e8c8d4a12"
+  "gitHead": "7e521ffebb087762dfa813ba481805f5cf106b7a"
 }
