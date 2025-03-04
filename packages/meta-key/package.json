@@ -1,6 +1,6 @@
 {
   "name": "@bonsai-components/meta-key",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Make meta key less annoying",
   "main": "./dist/index.js",
   "license": "(MIT OR Apache-2.0)",
@@ -21,7 +21,7 @@
     "cross-platform"
   ],
   "dependencies": {
-    "@bonsai-components/detect-os": "^0.1.5"
+    "@bonsai-components/detect-os": "^0.1.6"
   },
   "gitHead": "7e521ffebb087762dfa813ba481805f5cf106b7a"
 }

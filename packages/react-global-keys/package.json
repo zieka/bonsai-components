@@ -1,6 +1,6 @@
 {
   "name": "@bonsai-components/react-global-keys",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "description": "A simple way to add global keys",
   "main": "./dist/index.js",
   "license": "(MIT OR Apache-2.0)",
