@@ -1,22 +1,15 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "version": "independent",
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org/",
       "conventionalCommits": true,
-      "allowBranch": [
-        "main"
-      ]
+      "allowBranch": ["main"]
     },
     "version": {
-      "allowBranch": [
-        "main"
-      ]
+      "allowBranch": ["main"]
     }
   },
-  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
-  "useWorkspaces": false
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
 }

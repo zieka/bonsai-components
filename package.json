@@ -2,6 +2,9 @@
   "name": "@bonsai-components/root",
   "description": "simple awesome components",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "license": "(MIT OR Apache-2.0)",
   "repository": "https://github.com/zieka/bonsai-components",
   "author": {
