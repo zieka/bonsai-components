@@ -23,5 +23,9 @@
     "bonsai",
     "bonsai-components"
   ],
-  "repository": "https://github.com/zieka/bonsai-components/tree/main/packages/palette-pantry"
+  "repository": "https://github.com/zieka/bonsai-components/tree/main/packages/palette-pantry",
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "16741acae92fbb943b8f10841246ab4ded0df23c"
 }
