@@ -1,7 +1,7 @@
 {
-  "name": "@bonsai-components/utility-types",
-  "version": "0.5.7",
-  "description": "useful typescript types",
+  "name": "@bonsai-components/palette-pantry",
+  "version": "0.0.1",
+  "description": "Battle-tested color palettes for data visualization",
   "license": "(MIT OR Apache-2.0)",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -13,21 +13,15 @@
     "prettier-check": "prettier --config package.json --list-different '{,**/}*.{js,ts,json,graphql}'",
     "prettier-format": "prettier --config package.json --write '{,**/}*.{js,ts,json,graphql}'"
   },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "author": "Kyle Scully",
   "keywords": [
-    "typescript",
-    "utility",
-    "types",
-    "type",
-    "type-safe",
-    "react",
+    "color",
+    "palette",
+    "visualization",
+    "data-viz",
+    "colors",
     "bonsai",
     "bonsai-components"
   ],
-  "repository": "https://github.com/zieka/bonsai-components/tree/main/packages/react-global-keys",
-  "gitHead": "5085aafc57944ade6c951982e3ea71321a8dce2c"
+  "repository": "https://github.com/zieka/bonsai-components/tree/main/packages/palette-pantry"
 }
