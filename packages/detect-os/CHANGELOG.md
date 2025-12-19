@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/zieka/bonsai-components/compare/@bonsai-components/detect-os@0.2.0...@bonsai-components/detect-os@0.2.1) (2025-12-19)
+
+**Note:** Version bump only for package @bonsai-components/detect-os
+
 # [0.2.0](https://github.com/zieka/bonsai-components/compare/@bonsai-components/detect-os@0.1.8...@bonsai-components/detect-os@0.2.0) (2025-12-19)
 
 ### Features
