@@ -1,6 +1,6 @@
 {
   "name": "@bonsai-components/palette-pantry",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Battle-tested color palettes for data visualization",
   "license": "(MIT OR Apache-2.0)",
   "main": "./dist/index.js",
